@@ -27,14 +27,15 @@ const schema = yup.object().shape({
     .required('Required'),
 });
 
-export const AddContactForm = ({ initialValues, onSave }) => {
+const initialValues = { name: '', number: '' };
+
+export const AddContactForm = ({ onSave }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={(values, { resetForm }) => {
-        console.log(values.name);
-        onSave({ name: values.name, id: nanoid(), number: values.number });
+        onSave({ id: nanoid(), name: values.name, number: values.number });
         resetForm();
       }}
     >
