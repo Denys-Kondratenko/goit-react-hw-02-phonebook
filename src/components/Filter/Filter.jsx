@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Input } from 'components/AddContactForm/AddContactForm.styled';
 import { Formik, Form } from 'formik';
 
@@ -16,4 +17,9 @@ export const Filter = ({ initialValues, onChange }) => {
       </Form>
     </Formik>
   );
+};
+
+Filter.propTypes = {
+  initialValues: PropTypes.shape({ filter: PropTypes.string.isRequired }),
+  onChange: PropTypes.func.isRequired,
 };

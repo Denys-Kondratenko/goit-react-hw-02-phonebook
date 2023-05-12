@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Formik, Form, ErrorMessage } from 'formik';
 import { Input } from './AddContactForm.styled';
 import * as yup from 'yup';
@@ -54,4 +56,8 @@ export const AddContactForm = ({ onSave }) => {
       </Form>
     </Formik>
   );
+};
+
+AddContactForm.propTypes = {
+  onSave: PropTypes.func.isRequired,
 };

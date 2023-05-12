@@ -52,7 +52,7 @@ export class App extends Component {
     return (
       <Layout>
         <Section title="Phonebook">
-          <AddContactForm onSave={this.addContact} initialValues={this.state} />
+          <AddContactForm onSave={this.addContact} />
         </Section>
         <Section title="Contacts">
           <Contacts
