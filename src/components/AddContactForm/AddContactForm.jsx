@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types';
 
-import { Formik, Form, ErrorMessage } from 'formik';
-import { Input } from './AddContactForm.styled';
+import { Formik, ErrorMessage } from 'formik';
+import {
+  AddButton,
+  ContactForm,
+  ContactLabel,
+  Input,
+} from './AddContactForm.styled';
 import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 
@@ -41,19 +46,19 @@ export const AddContactForm = ({ onSave }) => {
         resetForm();
       }}
     >
-      <Form autoComplete="off">
-        <label htmlFor="name">
+      <ContactForm autoComplete="off">
+        <ContactLabel htmlFor="name">
           Name
           <Input name="name" required />
           <ErrorMessage name="name" component="p" />
-        </label>
-        <label htmlFor="number">
+        </ContactLabel>
+        <ContactLabel htmlFor="number">
           Number
           <Input type="tel" name="number" required />
           <ErrorMessage name="number" component="p" />
-        </label>
-        <button type="submit">Add contact</button>
-      </Form>
+        </ContactLabel>
+        <AddButton type="submit">Add contact</AddButton>
+      </ContactForm>
     </Formik>
   );
 };

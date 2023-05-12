@@ -54,7 +54,7 @@ export class App extends Component {
         <Section title="Phonebook">
           <AddContactForm onSave={this.addContact} />
         </Section>
-        <Section title="Contacts">
+        <Section firstTitle="Contacts">
           <Contacts
             contacts={this.getFilterContacts()}
             onDeleteContact={this.deleteContact}

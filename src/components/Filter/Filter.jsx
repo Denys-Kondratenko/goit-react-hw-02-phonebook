@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
-import { Input } from 'components/AddContactForm/AddContactForm.styled';
 import { Formik, Form } from 'formik';
+import { FilterForm, Input } from './Filter.styled';
 
 export const Filter = ({ initialValues, onChange }) => {
   return (
     <Formik initialValues={initialValues}>
       <Form autoComplete="off">
-        <label htmlFor="filter">
+        <FilterForm htmlFor="filter">
           Find contacts by name
           <Input
             name="filter"
             value={initialValues.filter}
             onChange={onChange}
           />
-        </label>
+        </FilterForm>
       </Form>
     </Formik>
   );
