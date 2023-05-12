@@ -36,13 +36,15 @@ const schema = yup.object().shape({
 
 const initialValues = { name: '', number: '' };
 
-export const AddContactForm = ({ onSave }) => {
+export const AddContactForm = ({ onSave, contactsName, alertMessage }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={(values, { resetForm }) => {
-        onSave({ id: nanoid(), name: values.name, number: values.number });
+        contactsName.includes(values.name)
+          ? alert(alertMessage(values.name))
+          : onSave({ id: nanoid(), name: values.name, number: values.number });
         resetForm();
       }}
     >
@@ -65,4 +67,6 @@ export const AddContactForm = ({ onSave }) => {
 
 AddContactForm.propTypes = {
   onSave: PropTypes.func.isRequired,
+  contactsName: PropTypes.arrayOf(PropTypes.string).isRequired,
+  alertMessage: PropTypes.func.isRequired,
 };
